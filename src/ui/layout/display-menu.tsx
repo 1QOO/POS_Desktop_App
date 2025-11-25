@@ -51,7 +51,7 @@ function MenuCard({menu, addOrder}: CardProp){
             <div className="text-right">
                 <p>{`Rp. ${menu.price.toLocaleString('id')}`}</p>
                 <button
-                    className="bg-green-400 rounded-md px-2 text-sm"
+                    className="bg-green-600 text-white font-bold rounded-md px-2 py-1 text-sm hover:cursor-pointer"
                     onClick={()=>addOrder({
                         id: menu.id,
                         name: menu.name,

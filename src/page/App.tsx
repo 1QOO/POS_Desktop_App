@@ -16,18 +16,19 @@ function App(){
         order,
         addOrder,
         decreaseOrder,
-        removeOrder
+        removeOrder,
+        clearOrders
     ] = useOrder();
 
 
     return (
-        <div className='size-full grid grid-cols-2 grid-rows-[auto_1fr] p-3 gap-x-3 gap-y-8 bg-blue-400'>
+        <div className='size-full grid grid-cols-[3fr_4fr] grid-rows-[auto_1fr] p-3 gap-x-3 gap-y-8 bg-blue-400'>
             <DisplayCategories
                 categories={category}
                 selectedCategory={selectedCategory}
                 selectCategory={setSelectedCategory}/>
             <DisplayMenu menu={menu} addOrder={addOrder} />
-            <DisplayOrders order={order} addOrder={addOrder} decreaseOrder={decreaseOrder} removeOrder={removeOrder} />
+            <DisplayOrders order={order} addOrder={addOrder} decreaseOrder={decreaseOrder} removeOrder={removeOrder} clearOrders={clearOrders} />
         </div>
     )
 }

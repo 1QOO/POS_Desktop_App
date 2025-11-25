@@ -8,7 +8,7 @@ interface Order {
 }
 
 function useOrder(): 
-([Order[], (menu: Order)=>void, (menu: Order)=>void, (menu: Order)=>void]){
+([Order[], (menu: Order)=>void, (menu: Order)=>void, (menu: Order)=>void, ()=>void]){
 
     const [order, setOrder] = useState<Order[]>([]);
 
@@ -40,7 +40,11 @@ function useOrder():
         setOrder(newOrder);
     }
 
-    return [order, addOrder, decreaseOrder, removeOrder];
+    function clearOrders(){
+        setOrder([]);
+    }
+
+    return [order, addOrder, decreaseOrder, removeOrder, clearOrders];
 }
 
 export default useOrder;
