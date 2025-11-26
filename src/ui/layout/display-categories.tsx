@@ -23,7 +23,7 @@ function DisplayCategories({categories, selectedCategory, selectCategory}: Categ
                         key={c.id}
                         className={`hover:bg-gray-300 focus:outline-none${c.id==selectedCategory?" font-bold":""}`}
                         onClick={()=>{selectCategory(c.id)}}>
-                        {c.name}
+                        {c.kategori}
                     </button>
                     )
                 })}

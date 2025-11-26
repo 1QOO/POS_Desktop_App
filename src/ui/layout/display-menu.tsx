@@ -45,18 +45,20 @@ function MenuCard({menu, addOrder}: CardProp){
         border-2 border-gray-600
         rounded-md bg-gray-200 p-2" >
             <div>
-                <div className="bg-gray-400 w-full aspect-square"></div>
-                <h2>{menu.name}</h2>
+                <div className="bg-gray-400 w-full aspect-square">
+                    <img src={menu.image} alt={menu.nama} />
+                </div>
+                <h2>{menu.nama}</h2>
             </div>
             <div className="text-right">
-                <p>{`Rp. ${menu.price.toLocaleString('id')}`}</p>
+                <p>{`Rp. ${menu.harga.toLocaleString('id')}`}</p>
                 <button
                     className="bg-green-600 text-white font-bold rounded-md px-2 py-1 text-sm hover:cursor-pointer"
                     onClick={()=>addOrder({
                         id: menu.id,
-                        name: menu.name,
+                        name: menu.nama,
                         amount: 1,
-                        price: menu.price
+                        price: menu.harga
                     })}>
                     Add
                 </button>

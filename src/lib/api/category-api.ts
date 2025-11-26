@@ -1,32 +1,41 @@
-export interface Category {
-    id: number,
-    name: string
+import {createClient} from '@supabase/supabase-js';
+
+export type Category = {
+    id: number;
+    kategori: string;
+}
+export type Menu = {
+    id: number;
+    nama: string;
+    harga: number;
+    id_kategori: number;
+    image: string;
 }
 
-export interface Menu {
-    id: number,
-    name: string,
-    price: number,
-    cat_id: number
-}
+const key = import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY;
+const URL = import.meta.env.VITE_PUBLIC_SUPABASE_URL;
 
-const CATEGORY_API_URL = "http://localhost:3000/category";
-const MENU_API_URL = "http://localhost:3000/menu";
+const supabase = createClient(URL, key);
 
-export async function getCategory(): Promise<Category[]>{
-    const response = await fetch(CATEGORY_API_URL);
+export async function getCategory():Promise<Category[]>{
+    const{data, error} = await supabase.from<"Kategori", Category>("Kategori").select("*");
 
-    if(!response.ok){
-        throw new Error(`Error fetching categories: ${response.statusText}`);
+    if(error){
+        console.error(error);
+        return [];
     }
-    return response.json();
+    console.log(data);
+
+    return data ?? [];
 }
 
-export async function getMenu(): Promise<Menu[]>{
-    const response = await fetch(MENU_API_URL);
+export async function getMenu():Promise<Menu[]>{
+    const{data, error} = await supabase.from<"Menu", Menu>("Menu").select("*");
 
-    if(!response.ok){
-        throw new Error(`Error fetching category: ${response.statusText}`);
+    if(error){
+        console.error(error);
+        return [];
     }
-    return response.json();
+
+    return data ?? [];
 }

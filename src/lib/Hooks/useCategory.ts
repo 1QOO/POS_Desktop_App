@@ -8,7 +8,7 @@ function useCategory(getCategory: ()=>Promise<Category[]>, getMenu: ()=>Promise<
     const [selectedCategory, setSelectedCategory] = useState<number>(0);
     const [allMenu, setAllMenu] = useState<Menu[]>([]);
     const menu = allMenu.filter(item=>{
-        if(item.cat_id==selectedCategory) return item;
+        if(item.id_kategori==selectedCategory) return item;
     });
 
     useEffect(() => {
@@ -20,9 +20,10 @@ function useCategory(getCategory: ()=>Promise<Category[]>, getMenu: ()=>Promise<
             setCategories(categoriesData);
             setAllMenu(menuData);
             if (categoriesData && categoriesData.length > 0) setSelectedCategory(categoriesData[0].id);
-        });
+        })
 
         return () => { mounted = false; };
+        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

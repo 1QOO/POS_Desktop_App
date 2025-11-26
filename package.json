@@ -5,14 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "mock:api": "json-server --watch src/lib/db.json --port 3000",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.84.0",
     "@tailwindcss/vite": "^4.1.15",
-    "bcryptjs": "^3.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
@@ -27,7 +26,6 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
-    "json-server": "^1.0.0-beta.3",
     "postcss": "^8.5.6",
     "react-router-dom": "^7.9.4",
     "tailwindcss": "^4.1.15",

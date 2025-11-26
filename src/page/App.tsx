@@ -20,7 +20,6 @@ function App(){
         clearOrders
     ] = useOrder();
 
-
     return (
         <div className='size-full grid grid-cols-[3fr_4fr] grid-rows-[auto_1fr] p-3 gap-x-3 gap-y-8 bg-blue-400'>
             <DisplayCategories
